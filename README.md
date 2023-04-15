@@ -12,7 +12,7 @@ _Shows a random quote with missing words and the user has to select the correct 
 - [x] Clear -> reset all changes on the quote
 ```
 
-### Modifying
+#### Modifying
 ```
 You can clone and modify the project in anyway you prefer.
 ```
