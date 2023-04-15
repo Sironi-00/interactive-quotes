@@ -78,8 +78,9 @@ let blurQuote = (quote, toBlur) => {
 }
 
 let blanks = "....";
-let userQuote = "";
 let currentQuotation = machine(srcQuotes);
+let userQuote = "";
+let useSelected = []
 
 let clickLoad = () => {
     currentQuotation = machine(srcQuotes);
@@ -94,6 +95,7 @@ let renderQuestion = (string) => {
 let renderAnswers = (answers) => {
     let div = document.getElementById("choices");
     div.innerHTML = "";
+    useSelected = []
     
     answers.forEach(choice => {
         let choiceNode = document.createElement("input");
@@ -107,6 +109,7 @@ let renderAnswers = (answers) => {
 
 let clickReveal = () => {
     renderQuestion(currentQuotation.quote);
+    renderAnswers([])
 }
 
 let clickClear = () => {
@@ -117,21 +120,24 @@ let clickClear = () => {
 let fillAnswers = (event) => {
     let missingWord = event.target.value;
     let stringQuote = document.getElementById("quote");
-    userQuote = stringQuote.innerText.replace(blanks, missingWord);
-    renderQuestion(userQuote);
+    stringQuote = stringQuote.innerHTML.replace(blanks, missingWord);
+    renderQuestion(stringQuote);
+    
     event.target.remove();
+    useSelected.push(event.target.value);
     validate()
 }
 
 let validate = () => {
+    userQuote = document.getElementById("quote").innerText;
     if (currentQuotation.quote === userQuote) return correctAnswers("Correct");
-    if (currentQuotation.quote.length == userQuote.length) correctAnswers("Incorrect");
+    
+    if (useSelected.length === currentQuotation.answers.length || userQuote.indexOf(blanks) < 0) correctAnswers("Incorrect");
 }
 let correctAnswers = (msg) => {
     let div = document.getElementById("choices")
     div.innerHTML = msg;
     div.className = "feedback";
-    
 }
 
 clickLoad();
