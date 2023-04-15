@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote</title>
+    <title>Interactive Quote</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>
-            Quote and Fill
+            Interactive Quote
         </h1>
         <p>Get an incomplete quote and select the missing phrases.</p>
         <p><small>A Code Academy -:- Mixed messsage project</small></p>
     </header>
     <main>
-        <div id="quote" class="container quote">
-            lorem
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora soluta labore qui nulla debitis alias eum vel incidunt quis placeat tenetur, impedit numquam unde cum? Iusto dolorem aperiam vero!
-        </div>
-        <div id="choices" class="container choices">
-            <p>Posible Guesses</p>
+        <div class="container quotearea">
+            <h2>Quote:</h2>
+            <p id="quote"></p>
+            <p id="choices"></p>
         </div>
         <div class="container buttons">
-            <p>Defaults:</p>
-            <input id="reload" type="button" value="Reload">
-            <input id="reveal" type="button" value="Reveal">
-            <input id="clear" type="button" value="Clear">
+            <p>Functions:</p>
+            <input id="reload" class="main-btns" type="button" value="Reload">
+            <input id="reveal" class="main-btns" type="button" value="Reveal">
+            <input id="clear" class="main-btns" type="button" value="Clear">
         </div>
     </main>
 </body>

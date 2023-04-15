@@ -1,36 +1,55 @@
 :root {
-    --color1: red;
-    --color2: blue;
-    --color3: #0007;
+    --color1: black;
+    --color2: #FFF;
+    --color3: #ee1;
+    --color4: #0007;
 }
 
 * {
     box-sizing: border-box;
 }
-h1, p {
-    
+h1, h2, p {   
     text-align: center;
+    margin: 0.75rem;
+    padding: 0;
 }
  body {
     margin: 0;
     padding: 0;
 }
-header h1 {
-    text-shadow: 2px 2px 0 var(--color2), 4px 4px 0 var(--color3);
-}
+
 .container {
-    border: 2px solid var(--color1);
-    box-shadow: 0.75rem 0.75rem 4px var(--color3);
-    width: 90%;
+    width: max-content;
+    min-width: 50%;
     min-height:60px;
     margin: 1rem auto;
-    padding: 0.5rem;
+    padding: 0.25rem 1rem;
     text-align: center;
     border-radius: 3px;
 }
-.container.choices {
-    width: 80%;
+.container.quotearea {
+    border: 2px solid var(--color1);
+    box-shadow: 0.75rem 0.75rem 4px var(--color4);
+    background-color: #ee1;
 }
-.container.buttons {
-    width: 60%;
+input {
+    border-radius: 0;
+    border: 2px solid var(--color4);
+    box-shadow: 3px 3px 3px var(--color4);
+    margin: 0.125rem 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+.main-btns {
+    color: var(--color1);
+    background-color: var(--color2);
+}
+span {
+    text-decoration: underline;
+}
+p.feedback {
+    color: blue;
+    font-weight: bold;
+}
+small {
+    opacity: 0.4;
 }

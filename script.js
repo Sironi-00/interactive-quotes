@@ -72,13 +72,14 @@ let blurQuote = (quote, toBlur) => {
     // censores extracted words from a quote.
     let myQuote = quote;
     toBlur.forEach(word=> {
-        myQuote = myQuote.replace(word, "_".repeat(4))
+        myQuote = myQuote.replace(word, `<span>${blanks}</span>`)
     })
     return myQuote;
 }
 
-let currentQuotation = machine(srcQuotes);
+let blanks = "....";
 let userQuote = "";
+let currentQuotation = machine(srcQuotes);
 
 let clickLoad = () => {
     currentQuotation = machine(srcQuotes);
@@ -116,15 +117,21 @@ let clickClear = () => {
 let fillAnswers = (event) => {
     let missingWord = event.target.value;
     let stringQuote = document.getElementById("quote");
-    userQuote = stringQuote.innerHTML.replace("____", missingWord);
+    userQuote = stringQuote.innerText.replace(blanks, missingWord);
     renderQuestion(userQuote);
     event.target.remove();
     validate()
 }
 
 let validate = () => {
-    if (currentQuotation.quote === userQuote) return console.log("Equal");
-    if (currentQuotation.quote.length == userQuote.length) console.log("Not Equal");
+    if (currentQuotation.quote === userQuote) return correctAnswers("Correct");
+    if (currentQuotation.quote.length == userQuote.length) correctAnswers("Incorrect");
+}
+let correctAnswers = (msg) => {
+    let div = document.getElementById("choices")
+    div.innerHTML = msg;
+    div.className = "feedback";
+    
 }
 
 clickLoad();
